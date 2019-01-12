@@ -45,8 +45,8 @@
                             <?php echo form_error('content','<p class="text-danger">','</p>'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="content">Aurthor</label>
-                            <textarea name="aurthor" class="form-control" placeholder="Enter post aurthor"><?php echo !empty($post['aurthor'])?$post['aurthor']:''; ?></textarea>
+                            <label for="content">Author</label>
+                            <textarea name="author" class="form-control" placeholder="Enter post author"><?php echo !empty($post['author'])?$post['author']:''; ?></textarea>
                             <?php echo form_error('content','<p class="text-danger">','</p>'); ?>
                         <input type="submit" name="postSubmit" class="btn btn-primary" value="Submit"/>
                     </form>
