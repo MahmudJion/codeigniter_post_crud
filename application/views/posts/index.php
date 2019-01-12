@@ -36,7 +36,7 @@
                             <td><?php echo $post['url']; ?></td>
                             <td><?php echo $post['tags']; ?></td>
                             <td><?php echo $post['keyword']; ?></td>
-                            <td><?php echo $post['aurthor']; ?></td>
+                            <td><?php echo $post['author']; ?></td>
                             <td>
                                 <a href="<?php echo site_url('posts/view/'.$post['id']); ?>" >View</a>
                                 <a href="<?php echo site_url('posts/edit/'.$post['id']); ?>" >Edit</a>
