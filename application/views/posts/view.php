@@ -28,8 +28,8 @@
                     <p><?php echo !empty($post['keyword'])?$post['keyword']:''; ?></p>
                 </div>
                 <div class="form-group">
-                    <label>Aurthor:</label>
-                    <p><?php echo !empty($post['aurthor'])?$post['aurthor']:''; ?></p>
+                    <label>Author:</label>
+                    <p><?php echo !empty($post['author'])?$post['author']:''; ?></p>
                 </div>     
             </div>
         </div>
