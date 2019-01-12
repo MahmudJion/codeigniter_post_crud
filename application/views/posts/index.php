@@ -22,7 +22,7 @@
                             <th>URL</th>
                             <th>Tags</th>
                             <th>Keyword</th>
-                            <th>Aurthor</th>
+                            <th>Author</th>
                             <th width="10%">Action</th>
                         </tr>
                     </thead>
@@ -31,16 +31,16 @@
                         <tr>
                             <td><?php echo '#'.$post['id']; ?></td>
                             <td><?php echo $post['title']; ?></td>
-                            <td><?php echo (strlen($post['content'])>150)?substr($post['content'],0,150).'...':$post['content']; ?></td>
-                            <td><?php echo (strlen($post['description'])>150)?substr($post['description'],0,150).'...':$post['description']; ?></td>
-                            <td><?php echo (strlen($post['url'])>150)?substr($post['url'],0,150).'...':$post['url']; ?></td>
-                            <td><?php echo (strlen($post['tags'])>150)?substr($post['tags'],0,150).'...':$post['tags']; ?></td>
-                            <td><?php echo (strlen($post['keyword'])>150)?substr($post['keyword'],0,150).'...':$post['keyword']; ?></td>
-                            <td><?php echo (strlen($post['aurthor'])>150)?substr($post['aurthor'],0,150).'...':$post['aurthor']; ?></td>
+                            <td><?php echo $post['content']; ?></td>
+                            <td><?php echo $post['description']; ?></td>
+                            <td><?php echo $post['url']; ?></td>
+                            <td><?php echo $post['tags']; ?></td>
+                            <td><?php echo $post['keyword']; ?></td>
+                            <td><?php echo $post['aurthor']; ?></td>
                             <td>
-                                <a href="<?php echo site_url('posts/view/'.$post['id']); ?>" class="glyphicon glyphicon-eye-open"></a>
-                                <a href="<?php echo site_url('posts/edit/'.$post['id']); ?>" class="glyphicon glyphicon-edit"></a>
-                                <a href="<?php echo site_url('posts/delete/'.$post['id']); ?>" class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete?')"></a>
+                                <a href="<?php echo site_url('posts/view/'.$post['id']); ?>" >View</a>
+                                <a href="<?php echo site_url('posts/edit/'.$post['id']); ?>" >Edit</a>
+                                <a href="<?php echo site_url('posts/delete/'.$post['id']); ?>" onclick="return confirm('Are you sure to delete?')">Delete</a>
                             </td>
                         </tr>
                         <?php endforeach; else: ?>
