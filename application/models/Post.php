@@ -12,7 +12,7 @@ class Post extends CI_Model{
             return $query->result_array();
         }
     }
-    
+
     /*
      * Insert post
      */
@@ -24,7 +24,7 @@ class Post extends CI_Model{
             return false;
         }
     }
-    
+
     /*
      * Update post
      */
@@ -36,7 +36,7 @@ class Post extends CI_Model{
             return false;
         }
     }
-    
+
     /*
      * Delete post
      */

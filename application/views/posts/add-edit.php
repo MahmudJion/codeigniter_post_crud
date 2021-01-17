@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-xs-12">
-    <?php 
+    <?php
         if(!empty($success_msg)){
             echo '<div class="alert alert-success">'.$success_msg.'</div>';
         }elseif(!empty($error_msg)){

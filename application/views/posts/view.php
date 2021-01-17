@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label>Author:</label>
                     <p><?php echo !empty($post['author'])?$post['author']:''; ?></p>
-                </div>     
+                </div>
             </div>
         </div>
     </div>

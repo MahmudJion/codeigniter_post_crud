@@ -1,17 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Posts extends CI_Controller {
-    
+
     function __construct() {
         parent::__construct();
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->model('post');
     }
-    
+
     public function index(){
         $data = array();
-        
+
         //get messages from the session
         if($this->session->userdata('success_msg')){
             $data['success_msg'] = $this->session->userdata('success_msg');
@@ -24,24 +24,24 @@ class Posts extends CI_Controller {
 
         $data['posts'] = $this->post->getRows();
         $data['title'] = 'Post Archive';
-        
+
         //load the list page view
         $this->load->view('templates/header', $data);
         $this->load->view('posts/index', $data);
         $this->load->view('templates/footer');
     }
-    
+
     /*
      * Post details
      */
     public function view($id){
         $data = array();
-        
+
         //check whether post id is not empty
         if(!empty($id)){
             $data['post'] = $this->post->getRows($id);
             $data['title'] = $data['post']['title'];
-            
+
             //load the details page view
             $this->load->view('templates/header', $data);
             $this->load->view('posts/view', $data);
@@ -50,14 +50,14 @@ class Posts extends CI_Controller {
             redirect('/posts');
         }
     }
-    
+
     /*
      * Add post content
      */
     public function add(){
         $data = array();
         $postData = array();
-        
+
         //if add request is submitted
         if($this->input->post('postSubmit')){
             //form field validation rules
@@ -69,7 +69,7 @@ class Posts extends CI_Controller {
             $this->form_validation->set_rules('keyword', 'post keyword', 'required');
             $this->form_validation->set_rules('aurthor', 'post aurthor', 'required');
 
-            
+
             //prepare post data
             $postData = array(
                 'title' => $this->input->post('title'),
@@ -80,7 +80,7 @@ class Posts extends CI_Controller {
                 'keyword' => $this->input->post('keyword'),
                 'aurthor' => $this->input->post('aurthor')
             );
-            
+
             //validate submitted form data
             if($this->form_validation->run() == true){
                 //insert post data
@@ -94,26 +94,26 @@ class Posts extends CI_Controller {
                 }
             }
         }
-        
+
         $data['post'] = $postData;
         $data['title'] = 'Create Post';
         $data['action'] = 'Add';
-        
+
         //load the add page view
         $this->load->view('templates/header', $data);
         $this->load->view('posts/add-edit', $data);
         $this->load->view('templates/footer');
     }
-    
+
     /*
      * Update post content
      */
     public function edit($id){
         $data = array();
-        
+
         //get post data
         $postData = $this->post->getRows($id);
-        
+
         //if update request is submitted
         if($this->input->post('postSubmit')){
             //form field validation rules
@@ -126,7 +126,7 @@ class Posts extends CI_Controller {
             $this->form_validation->set_rules('keyword', 'post keyword', 'required');
             $this->form_validation->set_rules('aurthor', 'post aurthor', 'required');
 
-            
+
             //prepare cms page data
             $postData = array(
                 'title' => $this->input->post('title'),
@@ -138,7 +138,7 @@ class Posts extends CI_Controller {
                 'aurthor' => $this->input->post('aurthor')
 
             );
-            
+
             //validate submitted form data
             if($this->form_validation->run() == true){
                 //update post data
@@ -153,17 +153,17 @@ class Posts extends CI_Controller {
             }
         }
 
-        
+
         $data['post'] = $postData;
         $data['title'] = 'Update Post';
         $data['action'] = 'Edit';
-        
+
         //load the edit page view
         $this->load->view('templates/header', $data);
         $this->load->view('posts/add-edit', $data);
         $this->load->view('templates/footer');
     }
-    
+
     /*
      * Delete post data
      */
@@ -172,7 +172,7 @@ class Posts extends CI_Controller {
         if($id){
             //delete post
             $delete = $this->post->delete($id);
-            
+
             if($delete){
                 $this->session->set_userdata('success_msg', 'Post has been removed successfully.');
             }else{
